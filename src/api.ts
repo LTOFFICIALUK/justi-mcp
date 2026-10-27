@@ -1,5 +1,5 @@
 // Minimal client for the justi.fun public API (the MCP server needs only a few calls).
-export const API_URL = (process.env.JUSTI_API_URL || "https://server-production-cc13.up.railway.app").replace(/\/+$/, "");
+export const API_URL = (process.env.JUSTI_API_URL || "https://api.justi.fun").replace(/\/+$/, "");
 const API_KEY = process.env.JUSTI_API_KEY || "";
 export const SITE_URL = "https://justi.fun";
 

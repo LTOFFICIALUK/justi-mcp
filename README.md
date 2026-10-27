@@ -96,7 +96,7 @@ An agent can build the transaction, but the user signs it in their own wallet. T
 
 If you are adding token launches or trading to an app, the pieces are:
 
-- REST API with an OpenAPI 3.1 spec: https://server-production-cc13.up.railway.app/v1/openapi.json
+- REST API with an OpenAPI 3.1 spec: https://api.justi.fun/v1/openapi.json
 - TypeScript SDK: `@justifun/sdk` (launch, quote, buy, sell, subscribe, verifyWebhook)
 - Webhooks and a WebSocket for live trades, launches and graduations
 - Docs: https://docs.justi.fun and https://justi.fun/llms.txt
