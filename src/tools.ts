@@ -99,7 +99,7 @@ export const registerTools = (server: McpServer) => {
       const [protocol, pad] = await Promise.all([api<Json>("GET", "/v1/protocol"), api<Json>("GET", "/v1/pad")]);
       return {
         about:
-          "justi.fun is a Solana launchpad on Meteora's Dynamic Bonding Curve. Launches are built by the server and sent privately through Jito. Every coin has a fixed 1B supply, no mint or freeze authority, locked metadata, and 100% of LP locked when it graduates to Meteora DAMM v2. The first 5 seconds of trading carry a falling fee that burns. Creators pick creator rewards, holder rewards (paid in SOL every 10 minutes) or a split.",
+          "justi.fun is a Solana launchpad on Meteora's Dynamic Bonding Curve. Launches are built by the server and sent privately through Jito. Every coin has a fixed 1B supply, no mint or freeze authority, locked metadata, and 100% of LP locked when it graduates to Meteora DAMM v2. The first 5 seconds of trading carry a falling fee; what is paid above the normal fee goes 50% to buy back and burn the coin, 30% to burn $JUSTI, 20% to the platform. Creators pick creator rewards, holder rewards (paid in SOL every 10 minutes) or a split; the creator rate is tracked from every trade and paid to the creator wallet by justi.fun automatically.",
         docs: `${SITE_URL}/developers`,
         api: API_URL,
         protocol,
