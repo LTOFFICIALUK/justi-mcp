@@ -15,7 +15,7 @@
     "claude",
     "cursor"
   ],
-  "homepage": "https://justi.fun/developers",
+  "homepage": "https://docs.justi.fun",
   "license": "MIT",
   "type": "module",
   "bin": {

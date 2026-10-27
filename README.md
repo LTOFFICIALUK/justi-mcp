@@ -90,7 +90,7 @@ git clone <this repo> && cd mcp && npm install && npm run build
 - "Build a launch for my wallet <address>: name Cattleaxe, ticker CAXE, holder rewards, image <url>."
 
 An agent can build the transaction, but the user signs it in their own wallet. To do the full flow in code
-(build, sign, submit, confirm) use the SDK: [`@justifun/sdk`](https://justi.fun/developers/quickstart).
+(build, sign, submit, confirm) use the SDK: [`@justifun/sdk`](https://docs.justi.fun/quickstart).
 
 ## Build a launchpad feature on Solana
 
@@ -99,7 +99,7 @@ If you are adding token launches or trading to an app, the pieces are:
 - REST API with an OpenAPI 3.1 spec: https://server-production-cc13.up.railway.app/v1/openapi.json
 - TypeScript SDK: `@justifun/sdk` (launch, quote, buy, sell, subscribe, verifyWebhook)
 - Webhooks and a WebSocket for live trades, launches and graduations
-- Docs: https://justi.fun/developers and https://justi.fun/llms.txt
+- Docs: https://docs.justi.fun and https://justi.fun/llms.txt
 
 ## Development
 
