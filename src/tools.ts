@@ -76,7 +76,7 @@ export const registerTools = (server: McpServer) => {
     {
       title: "Get one justi.fun coin",
       description:
-        "Full detail of one coin by mint: name, ticker, description, socials, fee split, safety facts (mint and freeze authority, metadata, LP lock), bonding curve progress, graduation and DAMM v2 pool, sniper window, totals.",
+        "Full detail of one coin by mint: name, ticker, description, socials, fee split, safety facts (mint and freeze authority, metadata, LP lock), bonding curve progress, graduation and DAMM v2 pool, launch block fee (sniperRule), totals.",
       inputSchema: { mint: address.describe("Coin mint address") },
       annotations: { readOnlyHint: true, openWorldHint: true },
     },
@@ -91,7 +91,7 @@ export const registerTools = (server: McpServer) => {
     {
       title: "justi.fun protocol, rules and fees",
       description:
-        "What justi.fun is and how it works on chain: Meteora DBC program, the 20 fee-tier configs, fee claimer, lookup table, how to tell a coin is from justi.fun, every fee split, the 5 second sniper window schedule, dev buy cap, copy rule, holder rewards and graduation. Use this before explaining fees or building a launch.",
+        "What justi.fun is and how it works on chain: Meteora DBC program, the 20 fee-tier configs, fee claimer, lookup table, how to tell a coin is from justi.fun, every fee split, the launch block fee, dev buy cap, copy rule, holder rewards and graduation. Use this before explaining fees or building a launch.",
       inputSchema: {},
       annotations: { readOnlyHint: true, openWorldHint: true },
     },
@@ -99,7 +99,7 @@ export const registerTools = (server: McpServer) => {
       const [protocol, pad] = await Promise.all([api<Json>("GET", "/v1/protocol"), api<Json>("GET", "/v1/pad")]);
       return {
         about:
-          "justi.fun is a Solana launchpad on Meteora's Dynamic Bonding Curve. Launches are built by the server and sent privately through Jito. Every coin has a fixed 1B supply, no mint or freeze authority, locked metadata, and 100% of LP locked when it graduates to Meteora DAMM v2. The first 5 seconds of trading carry a falling fee; what is paid above the normal fee goes 50% to buy back and burn the coin, 30% to burn $JUSTI, 20% to the platform. Creators pick creator rewards, holder rewards (paid in SOL every 10 minutes) or a split; the creator rate is tracked from every trade and paid to the creator wallet by justi.fun automatically.",
+          "justi.fun is a Solana launchpad on Meteora's Dynamic Bonding Curve. Launches are built by the server and sent privately through Jito. Every coin has a fixed 1B supply, no mint or freeze authority, locked metadata, and 100% of LP locked when it graduates to Meteora DAMM v2. Buys in a coin's launch block (the block of the create transaction) pay 99%; from the next block every buy pays the normal fee, and the dev buy in the create transaction pays the normal fee. What is paid above the normal fee goes 20% to buy back and burn the coin, 50% to buy back and burn $JUSTI, 30% to the platform. Coins launched before this rule keep a 5-second window with a 50/30/20 split. Creators pick creator rewards, holder rewards (paid in SOL every 10 minutes) or a split; the creator rate is tracked from every trade and paid to the creator wallet by justi.fun automatically.",
         docs: `${SITE_URL}/developers`,
         api: API_URL,
         protocol,
@@ -180,7 +180,7 @@ export const registerTools = (server: McpServer) => {
     {
       title: "Build an unsigned coin launch",
       description:
-        "Build the create transaction for a new coin on justi.fun, with the same rules as the site (fee tiers, 5 second sniper window, dev buy cap of 15% of supply, copy rule, 10 launches per wallet per day). The creator wallet must sign it; nothing is sent. mode: creator (creator earns 0 to 2.5%), holders (holders earn 0.5% in SOL), split (0.5% holders plus creator 0.25 to 2%). Without customMint the server picks a ...JUST vanity mint and signs that slot.",
+        "Build the create transaction for a new coin on justi.fun, with the same rules as the site (fee tiers, launch block fee, dev buy cap of 15% of supply, copy rule, 10 launches per wallet per day). The creator wallet must sign it; nothing is sent. mode: creator (creator earns 0 to 2.5%), holders (holders earn 0.5% in SOL), split (0.5% holders plus creator 0.25 to 2%). Without customMint the server picks a ...JUST vanity mint and signs that slot.",
       inputSchema: {
         wallet: address.describe("Creator wallet: pays, signs, owns the coin"),
         name: z.string().min(2).max(32),

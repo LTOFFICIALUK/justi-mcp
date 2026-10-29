@@ -13,8 +13,8 @@ It never holds keys and never sends a transaction. Build tools return unsigned t
 | Tool | What it does |
 |---|---|
 | `justi_list_coins` | List or search coins (q = ticker, name or mint), sort by new, marketcap, volume24h, lastTrade, progress, trades |
-| `justi_get_coin` | One coin: metadata, socials, fee split, safety facts, curve progress, graduation, sniper window |
-| `justi_protocol_info` | Program, the 20 fee-tier configs, fee claimer, lookup table, every fee split, sniper window, dev buy cap, copy rule |
+| `justi_get_coin` | One coin: metadata, socials, fee split, safety facts, curve progress, graduation, launch block fee |
+| `justi_protocol_info` | Program, the 20 fee-tier configs, fee claimer, lookup table, every fee split, launch block fee, dev buy cap, copy rule |
 | `justi_quote` | Quote a buy (amountSol) or sell (amountTokens): expected and minimum out, impact, fee and where it goes |
 | `justi_build_swap` | Unsigned v0 swap transaction for a wallet, plus how to submit it |
 | `justi_build_launch` | Unsigned create transaction for a new coin, same rules as the site |

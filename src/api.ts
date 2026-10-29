@@ -21,7 +21,7 @@ export const api = async <T>(method: "GET" | "POST", path: string, query?: Recor
         .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(String(v))}`)
         .join("&")
     : "";
-  const headers: Record<string, string> = { accept: "application/json", "user-agent": "justi-mcp/0.1.0" };
+  const headers: Record<string, string> = { accept: "application/json", "user-agent": "justi-mcp/0.1.1" };
   if (API_KEY) headers.authorization = `Bearer ${API_KEY}`;
   if (body !== undefined) headers["content-type"] = "application/json";
   let res: Response;

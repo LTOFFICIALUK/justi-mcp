@@ -1,6 +1,6 @@
 {
   "name": "@justifun/mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for justi.fun, a fair Solana launchpad on Meteora. Lets AI agents list and search coins, read coin details, quote, and build unsigned swap and launch transactions.",
   "keywords": [
     "mcp",

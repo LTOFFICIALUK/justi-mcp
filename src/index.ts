@@ -6,7 +6,7 @@ import { API_URL } from "./api.js";
 import { registerTools } from "./tools.js";
 
 const server = new McpServer(
-  { name: "justi", title: "justi.fun", version: "0.1.0" },
+  { name: "justi", title: "justi.fun", version: "0.1.1" },
   {
     instructions:
       "justi.fun is a fair Solana launchpad on Meteora. Use these tools to find coins, read coin detail, explain fees and rules (justi_protocol_info), quote trades, and build unsigned swap or launch transactions for a user's wallet to sign. Never ask a user for a private key or seed phrase; build tools return unsigned transactions only. Amounts in tool output marked Lamports are 1e-9 SOL; token raw units have 6 decimals.",
